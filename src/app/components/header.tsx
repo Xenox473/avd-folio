@@ -1,6 +1,6 @@
 import { Container, Stack, Tooltip, Typography } from "@mui/material"
 
-const containerStyle = {
+const style = {
   display: 'flex',
   alignItems: 'center',
   flexDirection: 'column',
@@ -12,8 +12,8 @@ export const Header = () => {
 
   return (
     <header>
-      <Container sx={containerStyle}>
-        <Stack spacing={2}>
+      <Container sx={{marginTop: '30px'}}>
+        <Stack spacing={2} sx={style}>
           <Tooltip title="Pronounced: Uh - bee - shake">
             <Typography variant="h1">
               Abhishek V Dhar
