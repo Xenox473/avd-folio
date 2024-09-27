@@ -2,6 +2,7 @@ import Grid from '@mui/material/Grid2';
 import { Header } from "./components/header";
 import { Timeline } from './components/timeline';
 import { Stack } from '@mui/material';
+import { SkillsDisplay } from './components/skillsDisplay';
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
             </Grid>
             <Grid size={4}>
               <p>
-                
+                <SkillsDisplay />
               </p>
             </Grid>
             <Grid size={4}>
