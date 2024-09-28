@@ -1,5 +1,6 @@
 import { skills } from "@/data/skills";
 import { Box } from "@mui/material";
+import { SkillBall } from "./skillBall";
 
 export const SkillsDisplay = () => {
   function renderSkills(skills: { backend: string[]; frontend: string[]; machineLearning: string[]; devops: string[]; softSkills: string[]; }) {
@@ -7,33 +8,25 @@ export const SkillsDisplay = () => {
       <>
         {
           Object.entries(skills).map(([category, skills]) => (
-            <li key={category}>
-              <p> {category} </p>
-              <ul>
-                {skills.map((skill, index) => (
-                  <li key={index}> {skill} </li>
-                ))}
-              </ul>
-            </li>
+            skills.map((skill, index) => (
+              <SkillBall key={index} category={category} skill={skill} />
+            ))
           ))
         }
+        {/* <SkillBall category="backend" skill="Node.js" /> */}
       </>
     )
   };
 
   return (
     <Box sx={{
-      borderLeft: '3px solid black',
-      borderRight: '3px solid black',
-      borderBottom: '3px solid black',
-      maxHeight: '100%',
-      overflow: 'auto',
-      padding: '1rem'
+      display: 'flex',
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      flexDirection: 'row-reverse',
+      gap: 2,
     }}>
-      <p> Skills </p>
-      <ul>
-        {renderSkills(skills)}
-      </ul>
+      {renderSkills(skills)}  
     </Box>
   )
 }

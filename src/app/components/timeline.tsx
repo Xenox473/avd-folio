@@ -86,7 +86,7 @@ export const Timeline = () => {
     <Box sx={{ maxWidth: '90%'}}>
       <Stepper activeStep={activeStep} orientation="vertical" nonLinear>
         {steps.map((step, index) => (
-          <Step key={step.company}>
+          <Step key={`${step.company}-${step.role}`}>
             <Button onClick={() => activeStep === index ? setActiveStep(-1) : setActiveStep(index)}> 
               <StepLabel
                 optional={
