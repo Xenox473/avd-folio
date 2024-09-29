@@ -81,7 +81,6 @@ export const Timeline = () => {
     }
   ]
 
-
   return (
     <Box sx={{ maxWidth: '90%'}}>
       <Stepper activeStep={activeStep} orientation="vertical" nonLinear>

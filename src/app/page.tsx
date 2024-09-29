@@ -7,22 +7,14 @@ import { SkillsDisplay } from './components/skillsDisplay';
 export default function Home() {
   return (
     <div>
-      {/* <Stack spacing={2}>
-        <Header />
-        <Grid container spacing={2}>
-          <Grid size={4}>
-            <Timeline />
-          </Grid>
-          <Grid size={4}>
-            <SkillsDisplay />
-          </Grid>
-          <Grid size={4}>
-            <h2>Project 2</h2>
-            <p>Details about project 2</p>
-          </Grid>
+      <Grid container spacing={2}>
+        <Grid size={6}>
+          <Header />
         </Grid>
-      </Stack> */}
-      <Header />
+        <Grid size={6}>
+          <Timeline />
+        </Grid>
+      </Grid>
     </div>
   );
 }

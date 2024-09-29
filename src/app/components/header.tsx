@@ -4,13 +4,14 @@ const containerStyle = {
   position: 'absolute',
   bottom: '5vh',
   left: '5vh',
+  width: 'inherit',
 }
 
 export const Header = () => {
   const elapsedYears = new Date().getFullYear() - 2019;
 
   return (
-    <Container maxWidth="md" sx={containerStyle}>
+    <Container sx={containerStyle}>
       <Stack spacing={2}>
         <Typography variant="h1" fontSize={64} fontFamily={'monospace'}>
           Abhishek V Dhar
