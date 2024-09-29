@@ -1,32 +1,17 @@
-import { skills } from "@/data/skills";
-import { Box } from "@mui/material";
-import { SkillBall } from "./skillBall";
+import { motion } from 'framer-motion';
+import { Chip } from '@mui/material';
+import { colors } from '../colors';
 
-export const SkillsDisplay = () => {
-  function renderSkills(skills: { backend: string[]; frontend: string[]; machineLearning: string[]; devops: string[]; softSkills: string[]; }) {
-    return (
-      <>
-        {
-          Object.entries(skills).map(([category, skills]) => (
-            skills.map((skill, index) => (
-              <SkillBall key={index} category={category} skill={skill} />
-            ))
-          ))
-        }
-        {/* <SkillBall category="backend" skill="Node.js" /> */}
-      </>
-    )
-  };
-
+export const SkillsDisplay = ({ skills }: { skills: string[] }) => {
   return (
-    <Box sx={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      flexWrap: 'wrap',
-      flexDirection: 'row-reverse',
-      gap: 2,
-    }}>
-      {renderSkills(skills)}  
-    </Box>
+    <motion.div
+      variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
+      transition={{ duration: 0.8 }}
+      style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}      
+    >
+      {skills.map((skill, index) => (
+        <Chip key={index} label={skill} style={{ margin: '0.5rem', backgroundColor: colors.keppel}} />
+      ))}
+    </motion.div>
   )
 }

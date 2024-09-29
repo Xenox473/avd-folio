@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <Stack spacing={2}>
       <Typography variant="h1" fontSize={64} fontFamily={'monospace'}>
-        Abhishek V Dhar
+        Abhi V Dhar
       </Typography>
       
       <Typography variant="h4" fontSize={32}> Sr. Software Engineer </Typography>
