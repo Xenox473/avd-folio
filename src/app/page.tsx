@@ -6,15 +6,14 @@ import { SkillsDisplay } from './components/skillsDisplay';
 
 export default function Home() {
   return (
-    <div>
-      <Grid container spacing={2}>
-        <Grid size={6}>
-          <Header />
-        </Grid>
-        <Grid size={6}>
-          <Timeline />
-        </Grid>
-      </Grid>
+    <div style={{ display: 'flex', height: '100%' }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div>spotify stuff here!!!</div>
+        <Header />
+      </div>
+      <div style={{ flex: 1 }}>
+        <Timeline />
+      </div>
     </div>
   );
 }
