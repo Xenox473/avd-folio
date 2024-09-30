@@ -18,8 +18,6 @@ const bodyStyle = {
   height: "calc(100vh - 32px)",
   margin: 0,
   padding: "16px",
-  display: "flex",
-  flexDirection: "column"
 };
 
 export default function RootLayout({
