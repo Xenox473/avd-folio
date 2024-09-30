@@ -1,11 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { SkillsDisplay } from "./skillsDisplay";
 import { colors } from "../colors";
+import { Typography } from "@mui/material";
 
 type AccordionProps = {
   role: {
-    company: string,
-    role: string,
+    institution: string,
+    title: string,
     year: string,
     skills: string[]
   },
@@ -33,10 +34,14 @@ export const Accordion = ({ role, index, expanded, setExpanded }: AccordionProps
         animate={{ 
           borderColor: isOpen ? colors.periwinkle : colors.englishViolet
         }}
-        onClick={() => setExpanded(isOpen ? false : index)}
+        onClick={() => setExpanded(isOpen || role.skills.length == 0 ? false : index)}
         style={headerStyles}
       >
-        {role.company} | {role.role} | {role.year}
+        <div style={{ display: "flex", alignItems: "center", flexDirection: 'column'}}>
+          <Typography variant="h6" style={{ margin: 0 }} fontFamily="monospace">{role.title}</Typography>
+          <Typography variant="subtitle1" style={{ margin: 0 }} fontFamily="monospace">{role.institution}</Typography>
+          <Typography variant="subtitle2" style={{ margin: 0 }} fontFamily="monospace">{role.year}</Typography>
+        </div>
       </motion.header>
       <AnimatePresence initial={false}>
         {isOpen && (
