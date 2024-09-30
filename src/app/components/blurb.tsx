@@ -14,7 +14,7 @@ export const Blurb = () => {
   return (
     <ul>
       {notes.map((note, index) => (
-        <li>
+        <li key={index}>
           <Typography variant="body1" fontFamily="monospace" fontSize={24}>
             {note}
           </Typography>

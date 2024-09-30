@@ -1,4 +1,3 @@
-import Grid from '@mui/material/Grid2';
 import { Title } from "./components/title";
 import { Timeline } from './components/timeline';
 import { Blurb } from './components/blurb';
