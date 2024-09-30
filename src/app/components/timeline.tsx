@@ -44,7 +44,7 @@ export const Timeline = () => {
     },
     {
       institution: 'Springbuk',
-      title: 'Senior Software Engineer | Platform Engineering',
+      title: 'Sr. Software Engineer (Platform Engineering)',
       year: 'August 2021 - June 2022',
       skills: [
         "AWS EC2", "AWS S3", "Git", "PostgreSQL", "Python", "Ruby (on Rails)", "Snowflake"
@@ -52,7 +52,7 @@ export const Timeline = () => {
     },
     {
       institution: 'Springbuk',
-      title: 'Software Engineer | Platform Engineering',
+      title: 'Software Engineer (Platform Engineering)',
       year: 'August 2019 - August 2021',
       skills: [
         "Airbrake.io", "AWS EC2", "AWS S3", "AWS VPC", "Git", "PostgreSQL", "Python", "React", "Rspec", "Ruby (on Rails)", "Snowflake"

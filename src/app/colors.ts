@@ -3,5 +3,6 @@ export const colors = {
   periwinkle: '#C9D7F8',
   mint: '#21D19F',
   keppel: '#45B69C',
-  magenta: '#DC6BAD'
+  magenta: '#DC6BAD',
+  darkGrey: '#121212',
 }

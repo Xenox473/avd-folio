@@ -20,9 +20,8 @@ export const SkillsDisplay = ({ skills }: { skills: string[] }) => {
             borderRadius: '5px',
             fontFamily: 'monospace',
           }}
-          whileHover={{ scale: 1.1 }}
         >
-          <Typography variant="subtitle1" fontFamily="monospace">{skill}</Typography>
+          <Typography variant="subtitle1" fontFamily="inherit">{skill}</Typography>
         </motion.div>
       ))}
     </motion.div>

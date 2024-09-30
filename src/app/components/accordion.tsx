@@ -22,6 +22,7 @@ const headerStyles = {
   marginBottom: "1rem",
   cursor: "pointer",
   border: "1px solid",
+  maxWidth: "75%",
 }
 
 export const Accordion = ({ role, index, expanded, setExpanded }: AccordionProps) => {
@@ -38,9 +39,9 @@ export const Accordion = ({ role, index, expanded, setExpanded }: AccordionProps
         style={headerStyles}
       >
         <div style={{ display: "flex", alignItems: "center", flexDirection: 'column'}}>
-          <Typography variant="h6" style={{ margin: 0 }} fontFamily="monospace">{role.title}</Typography>
-          <Typography variant="subtitle1" style={{ margin: 0 }} fontFamily="monospace">{role.institution}</Typography>
-          <Typography variant="subtitle2" style={{ margin: 0 }} fontFamily="monospace">{role.year}</Typography>
+          <Typography variant="h6" color={colors.periwinkle} style={{ margin: 0 }} fontFamily="monospace">{role.title}</Typography>
+          <Typography variant="subtitle1" color={colors.periwinkle} style={{ margin: 0 }} fontFamily="monospace">{role.institution}</Typography>
+          <Typography variant="subtitle2" color={colors.periwinkle} style={{ margin: 0 }} fontFamily="monospace">{role.year}</Typography>
         </div>
       </motion.header>
       <AnimatePresence initial={false}>
@@ -55,6 +56,7 @@ export const Accordion = ({ role, index, expanded, setExpanded }: AccordionProps
               collapsed: { opacity: 0, height: 0 }
             }}
             transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+            style= {{ overflow: "hidden", maxWidth: "75%" }}
           >
             <SkillsDisplay skills={role.skills} />
           </motion.section>

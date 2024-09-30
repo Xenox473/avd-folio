@@ -1,9 +1,9 @@
 import { Stack, Typography } from "@mui/material"
 
-export const Header = () => {
+export const Title = () => {
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} sx={{ flex: 1, display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
       <Typography variant="h1" fontSize={64} fontFamily={'monospace'}>
         Abhi V Dhar 
         <Typography 
