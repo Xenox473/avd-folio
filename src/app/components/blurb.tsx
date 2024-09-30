@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 export const Blurb = () => {
   const elapsedYears = new Date().getFullYear() - 2019;

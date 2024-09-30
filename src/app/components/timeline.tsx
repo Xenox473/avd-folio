@@ -1,17 +1,6 @@
 "use client"
 
-import { 
-  Box,
-  Stepper,
-  Step,
-  StepLabel,
-  StepContent,
-  Button,
-  Typography
-} from '@mui/material';
-
 import { useState } from 'react';
-import { colors } from '../colors';
 import { Accordion } from './accordion';
 
 export const Timeline = () => {

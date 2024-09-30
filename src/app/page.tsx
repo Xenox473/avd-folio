@@ -1,8 +1,6 @@
 import Grid from '@mui/material/Grid2';
 import { Title } from "./components/title";
 import { Timeline } from './components/timeline';
-import { Stack } from '@mui/material';
-import { SkillsDisplay } from './components/skillsDisplay';
 import { Blurb } from './components/blurb';
 import LinkDisplay from './components/LinkDisplay';
 
