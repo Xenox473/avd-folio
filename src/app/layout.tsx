@@ -16,8 +16,6 @@ const bodyStyle = {
   color: colors.periwinkle,
   fontFamily: "Roboto, sans-serif",
   height: "calc(100vh - 32px)",
-  margin: 0,
-  padding: "16px",
 };
 
 export default function RootLayout({
