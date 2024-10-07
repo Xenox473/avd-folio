@@ -4,7 +4,7 @@ const spanStyles = {
   margin: '0.5rem',
 }
 
-export const Title = () => {
+const TitleDisplay = () => {
 
   return (
     <Stack spacing={2} sx={{ alignItems: 'center' }}>
@@ -27,3 +27,5 @@ export const Title = () => {
     </Stack>
   );
 }
+
+export default TitleDisplay;

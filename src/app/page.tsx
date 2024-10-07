@@ -1,8 +1,9 @@
-import { Title } from "./components/title";
 // import { Timeline } from './components/timeline';
-// import { Blurb } from './components/blurb';
 // import LinkDisplay from './components/LinkDisplay';
+import { Stack } from "@mui/material";
+import BlurbDisplay from "./components/BlurbDisplay";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import TitleDisplay from "./components/TitleDisplay";
 
 export default function Home() {
   return (
@@ -13,9 +14,12 @@ export default function Home() {
         alignItems: 'center',
         flexDirection: 'column',
         justifyContent: 'center',
-        height: '100vh',
+        height: '100vh'
       }}>
-        <Title />
+        <Stack spacing={2} sx={{ alignItems: 'center' }}>
+          <TitleDisplay />
+          <BlurbDisplay />
+        </Stack>
       </div>
       {/* <div style={{display: 'flex', flexWrap: 'wrap', flex: 9}}>
         <div style={{ 
