@@ -15,7 +15,6 @@ const bodyStyle = {
   backgroundColor: colors.darkGrey,
   color: colors.periwinkle,
   fontFamily: "Roboto, sans-serif",
-  height: "calc(100vh - 32px)",
 };
 
 export default function RootLayout({

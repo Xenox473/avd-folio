@@ -2,7 +2,7 @@
 import { Typography } from "@mui/material";
 
 const styles = {
-  maxWidth: 'md',
+  maxWidth: 'xl',
 };
 
 const BlurbDisplay = () => {
