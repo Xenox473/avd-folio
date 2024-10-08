@@ -1,22 +1,34 @@
-// import { Timeline } from './components/timeline';
-// import LinkDisplay from './components/LinkDisplay';
+'use client';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import BlurbDisplay from "./components/BlurbDisplay";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import TitleDisplay from "./components/TitleDisplay";
 
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'Roboto',
+      'monospace',
+      'sans-serif',
+    ].join(','),
+    fontSize: 16,
+    h1: {
+      fontFamily: 'monospace',
+      fontSize: '4rem',
+    },
+    h4: {
+      fontFamily: 'monospace',
+      fontSize: '2rem',
+    }
+  },
+});
+
 export default function Home() {
+  console.log(theme);
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <ResponsiveAppBar />
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        height: 'calc(100vh - 76.5px)'
-      }}>
-          <TitleDisplay />
-      </div>
+      <TitleDisplay />
       <div style={{
         display: 'flex',
         alignItems: 'center',
@@ -25,31 +37,6 @@ export default function Home() {
       }}>
         <BlurbDisplay />
       </div>
-      {/* <div style={{display: 'flex', flexWrap: 'wrap', flex: 9}}>
-        <div style={{ 
-          flex: 1, 
-          display: 'flex', 
-          flexDirection: 'column', 
-          justifyContent: 'space-around',
-          alignContent: 'center',
-          flexWrap: 'wrap'
-        }}>
-          <div style={{ display: 'flex', maxWidth: '75%' }}>
-            <Blurb />
-          </div>
-          <div>spotify stuff here!!!</div>
-        </div>
-        <div style={{
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignContent: 'center',
-          flexWrap: 'wrap'
-        }}>
-          <Timeline />
-        </div>
-      </div> */}
-    </>
+    </ThemeProvider>
   );
 }

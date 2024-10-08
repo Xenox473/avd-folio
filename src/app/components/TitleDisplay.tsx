@@ -1,31 +1,15 @@
 import { Stack, Typography } from "@mui/material"
 
-const spanStyles = {
-  margin: '0.5rem',
-}
-
-const TitleDisplay = () => {
-
-  return (
-    <Stack spacing={2} sx={{ alignItems: 'center' }}>
-      <Typography variant="h1" fontSize={'4rem'} fontFamily={'monospace'}>
-        <div style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        }}>
-          <span style={spanStyles}>Abhi</span>
-          <span style={spanStyles}>V</span>
-          <span style={spanStyles}>Dhar</span>
-        </div>
-      </Typography>
-      <Typography variant="h4" fontSize={'2rem'}>
-        Sr. Software Engineer
-      </Typography>
-    </Stack>
-  );
-}
+const TitleDisplay = () => (
+  <Stack
+    alignItems="center"
+    height="calc(100vh - 76.5px)"
+    justifyContent="center"
+    spacing={2}
+  >
+    <Typography variant="h1" align="center">Abhi V Dhar</Typography>
+    <Typography variant="h4" align="center">Sr. Software Engineer</Typography>
+  </Stack>
+);
 
 export default TitleDisplay;

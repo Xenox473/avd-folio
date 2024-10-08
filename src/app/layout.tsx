@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 const bodyStyle = {
   backgroundColor: colors.darkGrey,
   color: colors.periwinkle,
-  fontFamily: "Roboto, sans-serif",
 };
 
 export default function RootLayout({
