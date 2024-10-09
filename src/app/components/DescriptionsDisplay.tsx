@@ -6,7 +6,7 @@ const DescriptionsDisplay = ({ descriptions }: { descriptions: string[] }) => {
     <ul>
       {descriptions.map((description, index) => (
         <li key={index}>
-          <Typography variant='body1' fontFamily={'monospace'} color={colors.periwinkle} fontSize={'1.5rem'}>
+          <Typography variant='body1'>
             {description}
           </Typography>
         </li>

@@ -5,7 +5,7 @@ const TitleDisplay = () => (
     spacing={2}
     flex={1}
     sx={{
-      justifyContent: 'center'
+      alignItems: 'center',
     }}
   >
     <Typography variant="h1" align="center">Abhi V Dhar</Typography>

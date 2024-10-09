@@ -17,9 +17,9 @@ export const Timeline = () => {
         "AWS S3", "AWS Lambda", "Docker", "DynamoDB", "Git", "GraphQL", "Python", "React", "Typescript"
       ],
       description: [
-        "Building a pipeline to train and run Survival Analysis models for predicting wait times at voting centers.",
+        "Built a pipeline to train and run Survival Analysis models for predicting wait times at voting centers.",
         "Deployed the pipeline using Serverless and Docker containerization to run on AWS Lambda.",
-        "Wrote end to end tests using Python’s unittest and moto to mock AWS services in a testing environment and ensure successful CI/CD changes.",
+        "Wrote end-to-end tests using Python’s unittest and moto to mock AWS services in a testing environment and ensure successful CI/CD changes.",
         "Implemented user validation and built out data visualization features on the front end using React components and GraphQL."
       ]
     }, 
@@ -81,38 +81,35 @@ export const Timeline = () => {
       institution: "Purdue University",
       title: 'Bachelor of Science in Computer Engineering',
       year: 'August 2015 - May 2019',
-      skills: [],
+      skills: ["Intro to Artificial Intelligence", "Data stuctures and Algorithms", "Software Engineering", "Microprocessor Systems and Interfacing"],
       description: []
     }
   ];
 
   return (
     <Box sx={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-around',
       paddingTop: '32px'
     }}>
-      <Stepper activeStep={activeStep} orientation="vertical" nonLinear={true} sx={{ width: "80%" }}>
+      <Stepper activeStep={activeStep} orientation="vertical" nonLinear={true} sx={{ width: "100%" }}>
         {steps.map((step, index) => (
           <Step key={step.institution}>
-            <StepLabel
-              optional={
-                <Typography variant="caption">{step.year}</Typography>
-              }
+            <Button 
+              sx={{
+                textTransform: 'none',
+                textAlign: 'left'
+              }}
+              onClick={() => activeStep === index ? setActiveStep(-1) : setActiveStep(index)}
             >
-              <Button 
-                sx={{
-                  textTransform: 'none',
-                  textAlign: 'left'
-                }}
-                onClick={() => activeStep === index ? setActiveStep(-1) : setActiveStep(index)}
+              <StepLabel
+                optional={
+                  <Typography variant="caption">{step.year}</Typography>
+                }
               >
                 <Typography variant='body1'>
                   {step.institution} | {step.title}
                 </Typography>
-              </Button>
-            </StepLabel>
+              </StepLabel>
+            </Button>
             <StepContent>
               <SkillsDisplay skills={step.skills} />
               <DescriptionsDisplay descriptions={step.description} />

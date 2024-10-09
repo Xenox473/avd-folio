@@ -13,9 +13,10 @@ export default function Home() {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        height:"calc(100vh - 76.5px)",
+        height:"calc(100vh - 108px)",
         gap: '10px',
-        paddingTop: '32px'
+        paddingTop: '32px',
+        maxWidth: 'md'
       }}>
         <TitleDisplay />
         <BlurbDisplay />
