@@ -1,12 +1,9 @@
 "use client"
 
-import { Box, Button, Paper, Step, StepContent, StepLabel, Stepper, Typography } from '@mui/material';
+import { Box, Button, Step, StepContent, StepLabel, Stepper, Typography } from '@mui/material';
 import { useState } from 'react';
 import { SkillsDisplay } from './skillsDisplay';
-import { color } from 'framer-motion';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import DescriptionsDisplay from './DescriptionsDisplay';
-import { colors } from '../colors';
 
 export const Timeline = () => {
   const [activeStep, setActiveStep] = useState(-1);

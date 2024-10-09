@@ -4,8 +4,8 @@ import { colors } from "../colors";
 const DescriptionsDisplay = ({ descriptions }: { descriptions: string[] }) => {
   return (
     <ul>
-      {descriptions.map((description) => (
-        <li>
+      {descriptions.map((description, index) => (
+        <li key={index}>
           <Typography variant='body1' fontFamily={'monospace'} color={colors.periwinkle} fontSize={'1.5rem'}>
             {description}
           </Typography>

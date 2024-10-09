@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { colors } from '../colors';
 import { Typography } from '@mui/material';
 
