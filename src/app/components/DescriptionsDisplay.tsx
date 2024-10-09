@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import { colors } from "../colors";
 
 const DescriptionsDisplay = ({ descriptions }: { descriptions: string[] }) => {
   return (
