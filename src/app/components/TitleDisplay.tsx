@@ -1,11 +1,13 @@
 import { Stack, Typography } from "@mui/material"
+import BlurbDisplay from "./BlurbDisplay";
 
 const TitleDisplay = () => (
   <Stack
-    alignItems="center"
-    height="calc(100vh - 76.5px)"
-    justifyContent="center"
     spacing={2}
+    flex={1}
+    sx={{
+      justifyContent: 'center'
+    }}
   >
     <Typography variant="h1" align="center">Abhi V Dhar</Typography>
     <Typography variant="h4" align="center">Sr. Software Engineer</Typography>

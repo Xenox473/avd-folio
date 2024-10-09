@@ -4,16 +4,14 @@ import { Typography } from '@mui/material';
 
 export const SkillsDisplay = ({ skills }: { skills: string[] }) => {
   return (
-    <motion.div
-      variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
-      transition={{ duration: 0.8 }}
-      style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'center' }}      
+    <div
+      style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}      
     >
       {skills.map((skill, index) => (
-        <motion.div
+        <div
           key={index}
           style={{
-            backgroundColor: colors.magenta,
+            backgroundColor: colors.englishViolet,
             color: colors.periwinkle,
             padding: '0.5rem',
             margin: '0.5rem',
@@ -21,9 +19,9 @@ export const SkillsDisplay = ({ skills }: { skills: string[] }) => {
             fontFamily: 'monospace',
           }}
         >
-          <Typography variant="subtitle1" fontFamily="inherit">{skill}</Typography>
-        </motion.div>
+          <Typography variant="subtitle1" fontFamily="inherit" fontSize='0.8rem'>{skill}</Typography>
+        </div>
       ))}
-    </motion.div>
+    </div>
   )
 }

@@ -3,7 +3,8 @@ import { Typography } from "@mui/material";
 
 const styles = {
   maxWidth: 'lg',
-  padding: '8px'
+  padding: '8px',
+  flex: 1
 };
 
 const BlurbDisplay = () => {

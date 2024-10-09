@@ -12,8 +12,22 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import LinkDisplay from './LinkDisplay';
+import { useRouter } from 'next/navigation';
 
-const pages = ['Experience', 'Projects'];
+const pages = [
+  {
+    label: 'Home',
+    href: '/'
+  },
+  {
+    label: 'Experience',
+    href: '/experience'
+  },
+  // {
+  //   label: 'Projects',
+  //   href: '/projects'
+  // }
+];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -24,6 +38,8 @@ const ResponsiveAppBar = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
+  const router = useRouter();
 
   return (
     <AppBar position="static" sx={{
@@ -61,8 +77,8 @@ const ResponsiveAppBar = () => {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                <MenuItem key={page.label} onClick={() => router.push(page.href)}>
+                  <Typography sx={{ textAlign: 'center' }}>{page.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -70,11 +86,11 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.label}
+                onClick={() => (router.push(page.href))}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {page.label}
               </Button>
             ))}
           </Box>
