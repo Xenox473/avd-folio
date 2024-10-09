@@ -3,11 +3,11 @@
 import { ThemeProvider } from "@mui/material";
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import { Timeline } from "../components/timeline";
-import { customTheme } from "../CustomTheme";
+import { myTheme } from "../myTheme";
 
 export default function Experience() {
   return (
-    <ThemeProvider theme={customTheme}>
+    <ThemeProvider theme={myTheme}>
       <ResponsiveAppBar />
       <div style={{
         display: 'flex',

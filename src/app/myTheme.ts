@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material";
+import { colors } from "./colors";
 
-export const customTheme = createTheme({
+export const myTheme = createTheme({
   typography: {
     fontFamily: [
       'Roboto',
@@ -22,7 +23,17 @@ export const customTheme = createTheme({
     },
     body1: {
       fontFamily: 'monospace',
-      fontSize: '1.5rem'
+      fontSize: '1.5rem',
+      color: colors.periwinkle
+    },
+    body2: {
+      fontFamily: 'monospace',
+      fontSize: '1rem',
+      color: colors.periwinkle
+    },
+    caption: {
+      fontFamily: 'monospace',
+      color: colors.periwinkle
     }
   },
 });

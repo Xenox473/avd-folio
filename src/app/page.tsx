@@ -1,13 +1,13 @@
 'use client';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import BlurbDisplay from "./components/BlurbDisplay";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import TitleDisplay from "./components/TitleDisplay";
-import { customTheme } from './CustomTheme';
+import { myTheme } from './myTheme';
 
 export default function Home() {
   return (
-    <ThemeProvider theme={customTheme}>
+    <ThemeProvider theme={myTheme}>
       <ResponsiveAppBar />
       <div style={{
         display: 'flex',

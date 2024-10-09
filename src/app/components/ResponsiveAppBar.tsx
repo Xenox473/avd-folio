@@ -13,6 +13,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import LinkDisplay from './LinkDisplay';
 import { useRouter } from 'next/navigation';
+import { colors } from '../colors';
 
 const pages = [
   {
@@ -78,7 +79,7 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page.label} onClick={() => router.push(page.href)}>
-                  <Typography sx={{ textAlign: 'center' }}>{page.label}</Typography>
+                  <Typography variant="body2" color={colors.darkGrey} sx={{ textAlign: 'center' }}>{page.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -90,7 +91,9 @@ const ResponsiveAppBar = () => {
                 onClick={() => (router.push(page.href))}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page.label}
+                <Typography variant="body2">
+                  {page.label}
+                </Typography>
               </Button>
             ))}
           </Box>

@@ -101,7 +101,7 @@ export const Timeline = () => {
           <Step key={step.institution}>
             <StepLabel
               optional={
-                <Typography variant="caption" fontFamily='monospace' color={colors.periwinkle}>{step.year}</Typography>
+                <Typography variant="caption">{step.year}</Typography>
               }
             >
               <Button 
@@ -111,7 +111,7 @@ export const Timeline = () => {
                 }}
                 onClick={() => activeStep === index ? setActiveStep(-1) : setActiveStep(index)}
               >
-                <Typography variant='body1' fontFamily={'monospace'} color={colors.periwinkle} fontSize={'1.5rem'}>
+                <Typography variant='body1'>
                   {step.institution} | {step.title}
                 </Typography>
               </Button>
