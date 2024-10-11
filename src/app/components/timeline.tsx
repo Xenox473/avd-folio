@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Button, Step, StepContent, StepLabel, Stepper, Typography } from '@mui/material';
+import { Box, Step, StepContent, Stepper, Typography } from '@mui/material';
 import { useState } from 'react';
 import { SkillsDisplay } from './skillsDisplay';
 import DescriptionsDisplay from './DescriptionsDisplay';
