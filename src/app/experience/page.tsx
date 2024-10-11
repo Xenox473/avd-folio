@@ -1,6 +1,6 @@
 "use client"
 
-import { ThemeProvider, Typography } from "@mui/material";
+import { Container, ThemeProvider, Typography } from "@mui/material";
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import { Timeline } from "../components/timeline";
 import { myTheme } from "../myTheme";
@@ -13,13 +13,12 @@ export default function Experience() {
       <Typography variant="h2" sx={{ textAlign: 'center' }}>
         Experience
       </Typography>
-      <div style={{
+      <Container style={{
         display: 'flex',
-        // alignItems: 'center',
         flexDirection: 'column'
       }}>
         <Timeline steps={experience} />
-      </div>
+      </Container>
     </ThemeProvider>
   )
 }

@@ -14,7 +14,6 @@ export default function Home() {
         alignItems: 'center',
         flexDirection: 'column',
         height:"calc(100vh - 108px)",
-        gap: '10px',
         paddingTop: '32px',
         maxWidth: 'md'
       }}>
