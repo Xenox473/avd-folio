@@ -12,6 +12,9 @@ export const myTheme = createTheme({
     h1: {
       color: colors.periwinkle
     },
+    h2: {
+      color: colors.periwinkle
+    },
     h4: {
       color: colors.periwinkle
     },

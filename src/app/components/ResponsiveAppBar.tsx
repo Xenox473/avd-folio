@@ -24,10 +24,10 @@ const pages = [
     label: 'Experience',
     href: '/experience'
   },
-  // {
-  //   label: 'Projects',
-  //   href: '/projects'
-  // }
+  {
+    label: 'Projects',
+    href: '/projects'
+  }
 ];
 
 const ResponsiveAppBar = () => {

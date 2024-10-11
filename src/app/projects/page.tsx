@@ -2,23 +2,23 @@
 
 import { ThemeProvider, Typography } from "@mui/material";
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
-import { Timeline } from "../components/timeline";
 import { myTheme } from "../myTheme";
-import { experience } from "@/data/experience";
+import { projects } from "@/data/projects";
+import { Timeline } from "../components/timeline";
 
 export default function Experience() {
   return (
     <ThemeProvider theme={myTheme}>
       <ResponsiveAppBar />
       <Typography variant="h2" sx={{ textAlign: 'center' }}>
-        Experience
+        Projects
       </Typography>
       <div style={{
         display: 'flex',
         // alignItems: 'center',
         flexDirection: 'column'
       }}>
-        <Timeline steps={experience} />
+        <Timeline steps={projects} />
       </div>
     </ThemeProvider>
   )

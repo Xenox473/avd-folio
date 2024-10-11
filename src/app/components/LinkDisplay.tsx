@@ -13,6 +13,7 @@ const iconStyles = {
   padding: 0,
   border: 'none',
   background: 'none',
+  cursor: 'pointer'
 }
 const LinkDisplay = () => {
   const items = [
