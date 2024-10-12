@@ -56,10 +56,16 @@ export const Timeline = ({ steps }: TimelineProps) => {
                 flexDirection: 'column'
               }}>
                 <Typography variant='body1'>
-                  {step.title}
+                  {step.caption?.includes("https") ?
+                    <a href={step.caption} style={{ color: 'white' }}> {step.title} </a>  
+                    : step.title
+                  }
                 </Typography>
                 <Typography variant='caption'>
-                  {step.caption}
+                  {step.caption?.includes("https") ?
+                    ""
+                    : step.caption
+                  }
                 </Typography>
               </div>
             </div>
