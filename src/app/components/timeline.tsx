@@ -57,7 +57,7 @@ export const Timeline = ({ steps }: TimelineProps) => {
               }}>
                 <Typography variant='body1'>
                   {step.caption?.includes("https") ?
-                    <a href={step.caption} style={{ color: 'white' }}> {step.title} </a>  
+                    <a href={step.caption} style={{ color: colors.periwinkle }}> {step.title} </a>  
                     : step.title
                   }
                 </Typography>

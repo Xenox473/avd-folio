@@ -50,7 +50,7 @@ const ResponsiveAppBar = () => {
     }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' }, color: colors.periwinkle }}>
             <IconButton
               size="large"
               aria-label="account of current user"
