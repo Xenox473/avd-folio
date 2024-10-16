@@ -1,0 +1,47 @@
+id ,skill,type
+1,Node.js,Backend
+2,Python,Backend
+3,Ruby on Rails,Backend
+4,PostgreSQL,Database
+5,Snowflake,Database
+6,DynamoDB,Database
+7,GraphQL,Backend
+8,React,Frontend
+9,Redux,Frontend
+10,Material-UI,Frontend
+11,HTML,Frontend
+12,CSS,Frontend
+13,JavaScript,Frontend
+14,TypeScript,Frontend
+15,Next.js,Frontend
+16,Natural Language Processing,Machine Learning
+17,Clustering,Machine Learning
+18,Graph Algorithms,Machine Learning
+19,Retrieval Augmented Generation,Machine Learning
+20,Faster R-CNN,Machine Learning
+21,YoloV5,Machine Learning
+22,Scikit-learn,Machine Learning
+23,TensorFlow,Machine Learning
+24,PyTorch,Machine Learning
+25,OpenAI API,Machine Learning
+26,Docker,Infrastructure
+27,Serverless,Infrastructure
+28,AWS Lambda,Infrastructure
+29,CI/CD,Infrastructure
+30,DataDog,Infrastructure
+31,AWS S3,Infrastructure
+32,AWS CloudWatch,Infrastructure
+33,AWS EC2,Infrastructure
+34,GitHub Actions,Infrastructure
+35,Git,Infrastructure
+36,Redis,Infrastructure
+37,Sidekiq,Infrastructure
+38,Heroku,Infrastructure
+39,Vercel,Infrastructure
+40,End to End Testing,Soft Skills
+41,Unit Testing,Soft Skills
+42,Code Reviews,Soft Skills
+43,Mentoring,Soft Skills
+44,Pair Programming,Soft Skills
+45,Data Visualization,Soft Skills
+46,Project Management,Soft Skills

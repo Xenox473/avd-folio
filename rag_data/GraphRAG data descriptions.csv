@@ -1,0 +1,23 @@
+id ,description
+1,"Built a pipeline to train and run Survival Analysis models for predicting wait times at voting centers.,"
+2,"Deployed the pipeline using Serverless and Docker containerization to run on AWS Lambda.,"
+3,"Wrote end-to-end tests using Python’s unittest and moto to mock AWS services in a testing environment and ensure successful CI/CD changes.,"
+4,Implemented user validation and built out data visualization features on the front end using React components and GraphQL.
+5,"Prototyped an internal custom machine learning model using natural language processing and clustering algorithms that automatically generates mappings to election candidates and significantly reduces manual effort by a factor of hours.,"
+6,"Used GPT 3.5 to generate descriptive articles of county level races leveraging internal election data.,"
+7,"Introduced backend end-to-end testing to the deployment pipeline through automated tests and rigorous unit testing of crucial models and services for our Ruby on Rails web app, improving test coverage of the codebase from nearly 0% to more than 70%.,"
+8,"Improved the database architecture by redesigning and eliminating redundant tables to optimize the execution of database queries.,"
+9,Used DataDog to monitor the application’s reliability and investigate performance issues.
+10,"Helped cut nearly 50% in costs in infrastructure and processing time by migrating databases from PostgreSQL to Snowflake and eliminating redundant services.,"
+11,"Designed and built custom ETL pipelines (using Python, Ruby, SQL) to ingest new data sources in order to support the onboarding of new clients.,"
+12,"Regularly collaborated with the Data Science team to resolve discrepancies in data and improve forecasting models.,"
+13,"Mentored other engineers through code reviews and pairing sessions.,"
+14,Awarded Snowflake Data Engineering Certification.
+15,"Led the technical effort to support single tenancy for the onboarding of Springbuk’s largest client within a quarter. Worked with members across several teams to ensure that the deliverables were met in a timely manner according to the contract and HIPAA requirements.,"
+16,"Vastly improved manual syncing processes between the warehouse and application databases by building an automated algorithm that reduced the runtime by over 80%.,"
+17,"Worked on redesigning the data aggregation infrastructure by introducing graph architecture and batch processing, improving efficiency from a weekly to a daily cadence.,"
+18,Improved the user interface and fixed bugs for the internal data management web application using Ruby on Rails and React.
+19,Used various large language transformer models alongside clustering and graph based algorithms for Retrieval Augmented Generation (RAG) to generate holistic summaries of album reviews on 1001albumgenerators.com
+20,A web app created to simulate assesment taking.
+21,Trained Faster R-CNN and YoloV5 models using Pytorch to detect comic book panels and speech bubbles in order to further academic research efforts in digitizing comic books.
+22,An analysis of NBA matchups during the 2021-2022 regular season using network science techniques.
