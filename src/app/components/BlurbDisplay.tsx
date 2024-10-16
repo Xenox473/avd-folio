@@ -21,7 +21,7 @@ const BlurbDisplay = () => {
         I've worked on small to medium sized teams across various industries like healthcare and election forecasting and on projects across the entire tech stack.
       </Typography>
       <Typography variant="body1" component="p">
-        I've built Generative AI products and tools for professional, academic, and personal projects, ETL and data aggregation pipelines for processing large datasets, frontends, APIs and database relations for web applications, and integrated end-to-end testing and CI/CD to existing codebases. You can check out some of my experiences and projects here.
+        I've built Generative AI products and tools for professional, academic, and personal projects, ETL and data aggregation pipelines for processing large datasets, frontends, APIs and database relations for web applications, and integrated end-to-end testing and CI/CD to existing codebases.
       </Typography>
     </Stack>
   );
