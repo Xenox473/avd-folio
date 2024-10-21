@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Pinecone } from "@pinecone-database/pinecone";
-import { OpenAIEmbeddings } from "@langchain/openai";
+import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
 import { PineconeStore } from "@langchain/pinecone";
 import { fetchNodes } from "@/app/utils/graph";
+import { PromptTemplate } from "@langchain/core/prompts";
+import { RunnableSequence } from "@langchain/core/runnables";
+import { StringOutputParser } from "@langchain/core/output_parsers";
 
 export const MaxDuration = 900;
 
@@ -20,17 +23,38 @@ export async function POST(req: NextRequest) {
     maxConcurrency: 5,
   });
 
-  const similaritySearchWithScoreResults = await vectorStore.similaritySearchWithScore(query, 5);
-  const maxScore = similaritySearchWithScoreResults.map((result) => result[1]).reduce((prev, current) => {
-    return (prev && prev > current) ? prev : current
-  })
+  const similaritySearchWithScoreResults = await vectorStore.similaritySearchWithScore(query, 10);
 
-  if (maxScore < 0.6) {
-    return NextResponse.json([])
-  } 
+  const topNodes = similaritySearchWithScoreResults.filter(result => result[1] >= 0.6)
 
-  const topNodes = similaritySearchWithScoreResults.filter(result => result[1] === maxScore)
+  if (topNodes.length === 0) {
+    return NextResponse.json("Sorry, I do not have enough information to answer that question.")
+  };
+
   const graphNodes = await fetchNodes(topNodes);
+  const model = new ChatOpenAI({});
+  
+  const prompt =
+    PromptTemplate.fromTemplate(`
+      Use the following pieces of context to answer the question about a software engineer named Abhi.
+      If the context doesn't provide enough information or know context is provided, just say that you don't know, don't try to make up an answer.
+      Pay attention to the context of the question rather than just looking for similar keywords in the corpus.
+      Use the descriptions from the context to provide examples. Do not refer to the context in the answer.
+      Use five sentences maximum.
+      {context}
+      Question: {question}
+    `);
 
-  return NextResponse.json(graphNodes);
+  const chain = RunnableSequence.from([
+    prompt,
+    model,
+    new StringOutputParser(),
+  ]);
+
+  const result = await chain.invoke({
+    "context": graphNodes.join(`\n`),
+    "question": query
+  });
+
+  return NextResponse.json(result);
 };

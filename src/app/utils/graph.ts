@@ -28,17 +28,17 @@ export async function fetchNodes(nodes: [DocumentInterface, number][] ) {
     const nodeId = node[0].metadata.element_id;
 
     const query = `
-      MATCH (n:${nodeLabel})
-      WHERE elementId(n) = "${nodeId}"
-      RETURN n AS node
+      MATCH (E: Experience)-[:work_done]->(D:Descriptions)-[:uses_skill]->(S:Skills)
+      WHERE elementId(${nodeLabel.substring(0, 1)}) = "${nodeId}"
+      RETURN E, D, S
     `;
 
     return await runQuery(query);
-  }))
+  }));
 
   const cleanedUpNodes = graphNodes.map((node) => cleanUpNode(node));
 
-  return cleanedUpNodes;
+  return [... new Set(cleanedUpNodes)];
 };
 
 function cleanUpExperience(node: { type: string; title: string; subtitle: any; timeline: any; }) {
@@ -50,34 +50,37 @@ function cleanUpExperience(node: { type: string; title: string; subtitle: any; t
 };
 
 function cleanUpDescriptions(node: { description: any; }) {
-  return node.description
+  return `Description: ${node.description}`
 };
 
 function cleanUpSkills(node: { skill: any; type: any; }) {
-  return `${node.skill} (${node.type})`
+  return `Skill: ${node.skill} (${node.type})`
 };
 
-function cleanUpNode(node: { records: any; }) {
-  const nodeLabel =  node.records[0]["_fields"][0].labels[0]
-  const nodeProperties = node.records[0]["_fields"][0].properties
+export function cleanUpNode(node: { records: any; }) {
+  const results = node.records.map((record: { [x: string]: { properties: any; }[]; }) => {
+    return record["_fields"].map((field) => {
+      const nodeLabel =  field.labels[0]
+      const nodeProperties = field.properties
 
-  console.log(nodeLabel);
-  console.log(nodeProperties);
+      let result = null;
+      switch (nodeLabel) {
+        case "Experience": 
+          result = cleanUpExperience(nodeProperties);
+          break;
+        case "Descriptions":
+          result = cleanUpDescriptions(nodeProperties);
+          break;
+        case "Skills":
+          result = cleanUpSkills(nodeProperties);
+          break;
+      }
 
-  let result = null;
-  switch (nodeLabel) {
-    case "Experience": 
-      result = cleanUpExperience(nodeProperties);
-      break;
-    case "Descriptions":
-      result = cleanUpDescriptions(nodeProperties);
-      break;
-    case "Skills":
-      result = cleanUpSkills(nodeProperties);
-      break;
-  }
-  return result;
+      return result;
+    });
+  })
+  
+  return results;
 };
-// fetchExperience(label, nodeID)
-// fetchDescriptions
-// fetchSkills
+
+
