@@ -16,16 +16,28 @@ const embeddings = new OpenAIEmbeddings({
   model: "text-embedding-3-small"
 });
 
+const Tag = require("en-pos").Tag;
+
 export async function POST(req: NextRequest) {
   const { query } = await req.json();
+
+  var tags = new Tag(query.split(" "))
+  .initial()
+  .smooth()
+  .tags;
+  
+  const filtered_query = query.split(" ").filter((word: string, index: number) => {
+    return (tags[index].startsWith("N")) | (tags[index].startsWith("J"));
+  }).join(" ");
+
+  console.log(tags, filtered_query)
+
   const vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
     pineconeIndex,
     maxConcurrency: 5,
   });
 
-  const similaritySearchWithScoreResults = await vectorStore.similaritySearchWithScore(query, 10);
-
-  const topNodes = similaritySearchWithScoreResults.filter(result => result[1] >= 0.6)
+  const topNodes = await vectorStore.similaritySearchWithScore(filtered_query, 3);
 
   if (topNodes.length === 0) {
     return NextResponse.json("Sorry, I do not have enough information to answer that question.")
