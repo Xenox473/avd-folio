@@ -25,6 +25,11 @@ async function runQuery(query: string): Promise<Result> {
 export async function fetchNodes(nodes: [DocumentInterface, number][] ) {
   const graphNodes = await Promise.all(nodes.map(async (node) => {
     const nodeLabel = node[0].metadata.label;
+
+    if (nodeLabel === "Blurb") {
+      return node[0].metadata.value;
+    }
+
     const nodeId = node[0].metadata.element_id;
 
     const query = `
@@ -58,7 +63,13 @@ function cleanUpSkills(node: { skill: any; type: any; }) {
 };
 
 export function cleanUpNode(node: { records: any; }) {
-  const results = node.records.map((record: { [x: string]: { properties: any; }[]; }) => {
+  if (typeof(node) === "string") {
+    return node;
+  };
+  
+  const results = node.records.map((record: { [x: string]: {
+    labels: any; properties: any; 
+}[]; }) => {
     return record["_fields"].map((field) => {
       const nodeLabel =  field.labels[0]
       const nodeProperties = field.properties
