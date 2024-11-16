@@ -1,5 +1,5 @@
 import { colors } from "@/app/colors";
-import { Box } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 
 const Message = ({ message, sender }: { message: string, sender: string }) => {
 
@@ -11,14 +11,16 @@ const Message = ({ message, sender }: { message: string, sender: string }) => {
       <Box sx={{
         color: "black",
         backgroundColor: colors.englishViolet,
-        width: "40%",
+        maxWidth: "50%",
         minHeight: "32px",
         borderRadius: "5px",
         alignContent: "center",
         margin: "4px",
         padding: "8px",
       }}>
-        { message }
+        <Typography variant="body1" sx={{ width: "100%", whiteSpace: "initial" }} >
+          { message }
+        </Typography>
       </Box>
     </div>
   )

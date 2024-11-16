@@ -48,14 +48,17 @@ const Chat = () => {
       borderRadius: '5px',
       background: colors.periwinkle,
       display: "flex",
-      flexDirection: "column"
+      flexDirection: "column",
+      whiteSpace: "nowrap"
     }}>
       <div style={{ 
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
         flex: 12,
-        gap: 5
+        gap: 5,
+        height: "100%",
+        overflowY: "scroll"
       }}>
         { messageHistory.map((message) => (
           <Message key={message.message} message={message.message} sender={message.sender} />
