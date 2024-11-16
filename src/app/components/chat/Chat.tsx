@@ -1,7 +1,7 @@
 import { FormControl, IconButton, Input, InputLabel, Skeleton } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import { colors } from "@/app/colors";
-import { useState } from "react";
+import { KeyboardEvent, useState } from "react";
 import Message from "./Message";
 
 type MessageProps = {
@@ -35,7 +35,7 @@ const Chat = () => {
     }).then(() => { setIsLoading(false) })
   };
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (event.key === "Enter") {
       handleSubmit();
     }

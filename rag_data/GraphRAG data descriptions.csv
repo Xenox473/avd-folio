@@ -1,23 +1,25 @@
 id ,description
-1,"Built a pipeline to train and run Survival Analysis models for predicting wait times at voting centers.,"
-2,"Deployed the pipeline using Serverless and Docker containerization to run on AWS Lambda.,"
-3,"Wrote end-to-end tests using Python’s unittest and moto to mock AWS services in a testing environment and ensure successful CI/CD changes.,"
-4,Implemented user validation and built out data visualization features on the front end using React components and GraphQL.
-5,"Prototyped an internal custom machine learning model using natural language processing and clustering algorithms that automatically generates mappings to election candidates and significantly reduces manual effort by a factor of hours.,"
-6,"Used GPT 3.5 to generate descriptive articles of county level races leveraging internal election data.,"
-7,"Introduced backend end-to-end testing to the deployment pipeline through automated tests and rigorous unit testing of crucial models and services for our Ruby on Rails web app, improving test coverage of the codebase from nearly 0% to more than 70%.,"
-8,"Improved the database architecture by redesigning and eliminating redundant tables to optimize the execution of database queries.,"
-9,Used DataDog to monitor the application’s reliability and investigate performance issues.
-10,"Helped cut nearly 50% in costs in infrastructure and processing time by migrating databases from PostgreSQL to Snowflake and eliminating redundant services.,"
-11,"Designed and built custom ETL pipelines (using Python, Ruby, SQL) to ingest new data sources in order to support the onboarding of new clients.,"
-12,"Regularly collaborated with the Data Science team to resolve discrepancies in data and improve forecasting models.,"
-13,"Mentored other engineers through code reviews and pairing sessions.,"
+1,"Helped launch a web-app that allowed over 80,000 active users to see estimated wait times at voting centers across counties in Indiana."
+2,"Developed and deployed Survival Analysis models for predictive analytics using Python, AWS Lambda, Serverless and Docker."
+3,Implemented end-to-end tests using Python’s unittest and moto to mock AWS services to ensure successful CI/CD changes.
+4,"Led the implementation of a wait time history visualization using React and MUI components that became a key feature of the
+product."
+5,Developed an NLP-based machine learning model using clustering algorithms for automated election candidate mapping.
+6,Integrated GPT-3.5 for generating data-driven content around county level races using internal election statistics.
+7,Increased test coverage from 0% to 70% through systematic implementation of unit and integration tests using Ruby’s minitest.
+8,Optimized PostgreSQL database architecture and query performance through table redesigns and codebase refactoring.
+9,Leveraged DataDog to monitor application reliability and investigate performance issues.
+10,"Migrated databases from PostgreSQL to Snowflake, reducing infrastructure costs and processing time by 50%"
+11,"Architected custom ETL pipelines (using Python, Ruby, SQL) to ingest healthcare data sources."
+12,Collaborated with the Data Science team to improve forecasting models for healthcare metrics.
+13,Mentored other engineers through code reviews and pairing sessions.
 14,Awarded Snowflake Data Engineering Certification.
-15,"Led the technical effort to support single tenancy for the onboarding of Springbuk’s largest client within a quarter. Worked with members across several teams to ensure that the deliverables were met in a timely manner according to the contract and HIPAA requirements.,"
-16,"Vastly improved manual syncing processes between the warehouse and application databases by building an automated algorithm that reduced the runtime by over 80%.,"
-17,"Worked on redesigning the data aggregation infrastructure by introducing graph architecture and batch processing, improving efficiency from a weekly to a daily cadence.,"
-18,Improved the user interface and fixed bugs for the internal data management web application using Ruby on Rails and React.
-19,Used various large language transformer models alongside clustering and graph based algorithms for Retrieval Augmented Generation (RAG) to generate holistic summaries of album reviews on 1001albumgenerators.com
+15,Spearheaded implementation of HIPAA-compliant single-tenancy solution for an enterprise client within a quarter.
+16,"Implemented a DAG processing pipeline for data aggregation which improved data ingestion efficiency from a weekly to daily
+cadence."
+17,Engineered a data synchronization algorithm using DAG and batch processing which reduced warehouse-to-application database sync time by 80%
+18,Developed features for the internal data management web application using Ruby on Rails and React.
+19,Developed a pipeline for processing and summarizing album reviews using Retrieval Augmented Generation (RAG) and graph-based algorithms.
 20,A web app created to simulate assesment taking.
-21,Trained Faster R-CNN and YoloV5 models using Pytorch to detect comic book panels and speech bubbles in order to further academic research efforts in digitizing comic books.
+21,"Trained computer vision models (Faster R-CNN, YOLOv5) using PyTorch to detect comic book panels and speech bubbles in order to further academic research efforts in digitizing comic books."
 22,An analysis of NBA matchups during the 2021-2022 regular season using network science techniques.

@@ -14,7 +14,7 @@ const AbotMe = () => {
       <Stack alignItems="center" gap={5} minHeight={"100%"}>
         <div style={{ flex: 1 }}>
           <Typography variant="h2" sx={{ textAlign: 'center' }}>
-            Abo<strike>u</strike>t me!
+            Abo<span style={{ textDecoration: 'line-through' }}>u</span>t me!
           </Typography>
           <Typography variant="body1" sx={{ textAlign: 'center' }}>
             A RAG chatbot that answers questions about my professional experience.
