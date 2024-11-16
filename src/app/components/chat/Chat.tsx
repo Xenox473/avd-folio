@@ -44,14 +44,13 @@ const Chat = () => {
   return (
     <div style={{
       position:"relative",
-      width: "50%",
-      height: "75%",
       border: 'solid 2px',
       borderRadius: '5px',
       background: colors.periwinkle,
       display: "flex",
       flexDirection: "column",
-      whiteSpace: "nowrap"
+      whiteSpace: "nowrap",
+      height: "50vh",
     }}>
       <div style={{ 
         display: "flex",
@@ -59,7 +58,7 @@ const Chat = () => {
         justifyContent: "flex-end",
         flex: 12,
         gap: 5,
-        height: "100%",
+        height: "50vh",
         overflowY: "scroll",
         padding: "8px"
       }}>
