@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
       Use the following pieces of context to answer the question about a software engineer named Abhi.
       If the context doesn't provide enough information or know context is provided, just say that you don't know, don't try to make up an answer.
       Pay attention to the context of the question rather than just looking for similar keywords in the corpus.
-      Use the descriptions from the context to provide examples. Do not refer to the context in the answer. Be concise.
+      Use the descriptions from the context to provide examples. Do not refer to the context in the answer.
       Use five sentences maximum.
       I'm a software engineer with over 5 years of experience. I have a passion for building products that help people and communities. I've recently graduated with a Master's in Data Science and have a strong interest in AI and NLP applications. I enjoy working on teams that foster a culture of open and honest communication, provide opportunities to wear many hats, and encourage collaboration and mentorship. I've worked on small to medium sized teams across various industries like healthcare and election forecasting and on projects across the entire tech stack.
       {context}

@@ -2,13 +2,35 @@ import { FormControl, IconButton, Input, InputLabel } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import { colors } from "@/app/colors";
 import { useState } from "react";
+import Message from "./Message";
+
+type MessageProps = {
+  sender: string,
+  message: string
+}
     
 const Chat = () => {
   const [ question, setQuestion ] = useState('');
+  const [ messageHistory, setMessageHistory ] = useState<MessageProps[]>([]);
 
-  const handleSubmit = () => {
-    console.log(question);
+  async function handleSubmit() {
+    const newMessageHistory = [...messageHistory, { sender: "user", message: question }]
+    
+    setMessageHistory(newMessageHistory)
     setQuestion('');
+
+    fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({query: question})
+    }).then((response) => {
+      response.json().then((answer) => {
+        setMessageHistory([...newMessageHistory, { sender: "bot", message: answer }])
+      })
+    })
   };
 
   const handleKeyDown = (event) => {
@@ -18,8 +40,28 @@ const Chat = () => {
   };
 
   return (
-    <div style={{ position:"relative", width: "50%", height: "75%", border: 'solid 2px', borderRadius: '5px', background: colors.periwinkle }}>
-      <div style={{ position: "absolute", bottom: 0, width: '100%', padding: '8px' }}>
+    <div style={{
+      position:"relative",
+      width: "50%",
+      height: "75%",
+      border: 'solid 2px',
+      borderRadius: '5px',
+      background: colors.periwinkle,
+      display: "flex",
+      flexDirection: "column"
+    }}>
+      <div style={{ 
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        flex: 12,
+        gap: 5
+      }}>
+        { messageHistory.map((message) => (
+          <Message key={message.message} message={message.message} sender={message.sender} />
+        ))}
+      </div>
+      <div style={{ width: '100%', padding: '8px', flex: 1 }}>
         <FormControl 
           fullWidth
           sx={{ display: 'flex', flexDirection: 'row' }}
