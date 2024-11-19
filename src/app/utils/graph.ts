@@ -22,6 +22,22 @@ async function runQuery(query: string): Promise<Result> {
   }
 };
 
+type NodePropertiesProps = {
+  type: string,
+  skill: string,
+  description: string,
+  title: string,
+  subtitle: string,
+  timeline: string
+}
+
+type NodeRecordProps = {
+  _fields: {
+    labels: string[],
+    properties: NodePropertiesProps
+  }[]
+}
+
 export async function fetchNodes(nodes: [DocumentInterface, number][] ) {
   const graphNodes = await Promise.all(nodes.map(async (node) => {
     const nodeLabel = node[0].metadata.label;
@@ -46,7 +62,7 @@ export async function fetchNodes(nodes: [DocumentInterface, number][] ) {
   return [... new Set(cleanedUpNodes)];
 };
 
-function cleanUpExperience(node: { type: string; title: string; subtitle: any; timeline: any; }) {
+function cleanUpExperience(node: NodePropertiesProps) {
   if (node.type == "Personal") {
     return `Personal project: ${node.title} - ${node.subtitle}`
   }
@@ -54,23 +70,21 @@ function cleanUpExperience(node: { type: string; title: string; subtitle: any; t
   return `${node.type}: ${node.subtitle} at ${node.title} from ${node.timeline}`
 };
 
-function cleanUpDescriptions(node: { description: any; }) {
+function cleanUpDescriptions(node: NodePropertiesProps) {
   return `Description: ${node.description}`
 };
 
-function cleanUpSkills(node: { skill: any; type: any; }) {
+function cleanUpSkills(node: NodePropertiesProps) {
   return `Skill: ${node.skill} (${node.type})`
 };
 
-export function cleanUpNode(node: { records: any; }) {
+export function cleanUpNode(node: { records: NodeRecordProps[]; }) {
   if (typeof(node) === "string") {
     return node;
   };
   
-  const results = node.records.map((record: { [x: string]: {
-    labels: any; properties: any; 
-}[]; }) => {
-    return record["_fields"].map((field) => {
+  const results = node.records.map((record) => {
+    return record["_fields"].map((field: { labels: string[]; properties: NodePropertiesProps; }) => {
       const nodeLabel =  field.labels[0]
       const nodeProperties = field.properties
 

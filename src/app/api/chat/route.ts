@@ -16,12 +16,13 @@ const embeddings = new OpenAIEmbeddings({
   model: "text-embedding-3-small"
 });
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const Tag = require("en-pos").Tag;
 
 export async function POST(req: NextRequest) {
   const { query } = await req.json();
 
-  var tags = new Tag(query.split(" "))
+  const tags = new Tag(query.split(" "))
   .initial()
   .smooth()
   .tags;
