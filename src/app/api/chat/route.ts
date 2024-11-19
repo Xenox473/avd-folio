@@ -7,8 +7,6 @@ import { PromptTemplate } from "@langchain/core/prompts";
 import { RunnableSequence } from "@langchain/core/runnables";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 
-export const MaxDuration = 900;
-
 const pc = new Pinecone();
 const pineconeIndex = pc.index('avd-bot')
 
