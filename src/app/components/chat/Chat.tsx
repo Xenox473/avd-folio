@@ -1,4 +1,4 @@
-import { FormControl, IconButton, Input, InputLabel, Skeleton } from "@mui/material";
+import { IconButton, Input, InputAdornment, Skeleton } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import { colors } from "@/app/colors";
 import { KeyboardEvent, useState } from "react";
@@ -60,6 +60,13 @@ const Chat = () => {
         onSubmit={handleSubmit}
         placeholder="Ask a question"
         disabled={isLoading}
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton onClick={handleSubmit}>
+              <SendIcon />
+            </IconButton>
+          </InputAdornment>
+        }
       />
     </div>
   );
