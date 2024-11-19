@@ -11,11 +11,14 @@ type MessageProps = {
     
 const Chat = () => {
   const [ question, setQuestion ] = useState('');
-  const [ messageHistory, setMessageHistory ] = useState<MessageProps[]>([]);
+  const [ messageHistory, setMessageHistory ] = useState<MessageProps[]>([{
+    sender: "bot",
+    message: "Hi! I'm a RAG chatbot built by Abhishek using Langchain, Neo4j, Pinecone, and React. I can answer questions about Abhishek's professional experiences. You can ask me to summarize my experiences, technical skills, or personal projects."
+  }]);
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
   async function handleSubmit() {
-    const newMessageHistory = [...messageHistory, { sender: "user", message: question }]
+    const newMessageHistory = [{ sender: "user", message: question }, ...messageHistory]
     
     setMessageHistory(newMessageHistory)
     setQuestion('');
@@ -30,7 +33,7 @@ const Chat = () => {
       body: JSON.stringify({query: question})
     }).then((response) => {
       response.json().then((answer) => {
-        setMessageHistory([...newMessageHistory, { sender: "bot", message: answer }])
+        setMessageHistory([{ sender: "bot", message: answer }, ...newMessageHistory])
       })
     }).then(() => { setIsLoading(false) })
   };
@@ -42,49 +45,22 @@ const Chat = () => {
   };
 
   return (
-    <div style={{
-      position:"relative",
-      border: 'solid 2px',
-      borderRadius: '5px',
-      background: colors.periwinkle,
-      display: "flex",
-      flexDirection: "column",
-      whiteSpace: "nowrap",
-      height: "50vh",
-    }}>
-      <div style={{ 
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end",
-        flex: 12,
-        gap: 5,
-        height: "50vh",
-        overflowY: "scroll",
-        padding: "8px"
-      }}>
-        { messageHistory.map((message) => (
+    <div style={{ borderRadius: '5px', background: colors.periwinkle }}>
+      <div style={{ display: "flex", flexDirection: "column-reverse", height: "50vh", overflowY: "scroll", padding: "8px" }}>
+        {isLoading && <Skeleton variant="rounded" height={124} width="50%" />}
+        {messageHistory.map((message) => (
           <Message key={message.message} message={message.message} sender={message.sender} />
         ))}
-        { isLoading && <Skeleton variant="rounded" height={64} width="50%"/>}
       </div>
-      <div style={{ width: '100%', padding: '8px', flex: 1 }}>
-        <FormControl 
-          fullWidth
-          sx={{ display: 'flex', flexDirection: 'row' }}
-        >
-          <InputLabel>Ask a question</InputLabel>
-          <Input
-            sx={{ flex: 2 }}
-            value={question}
-            onChange={(event) => setQuestion(event.target.value)}
-            onKeyDown={(event) => handleKeyDown(event)}
-            disabled={isLoading}
-          />
-          <IconButton type="submit" size="large" onClick={() => handleSubmit()}>
-            <SendIcon />
-          </IconButton>
-        </FormControl>
-      </div>
+      <Input
+        sx={{ width: "100%", borderTop: "1px solid black", input: { padding: "8px" }, '&::before': { borderBottom: 'none' } }}
+        value={question}
+        onChange={(event) => setQuestion(event.target.value)}
+        onKeyDown={(event) => handleKeyDown(event)}
+        onSubmit={handleSubmit}
+        placeholder="Ask a question"
+        disabled={isLoading}
+      />
     </div>
   );
 }
