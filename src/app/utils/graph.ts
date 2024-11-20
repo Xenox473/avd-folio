@@ -38,7 +38,7 @@ type NodeRecordProps = {
   }[]
 }
 
-export async function fetchNodes(nodes: [DocumentInterface, number][] ) {
+export async function fetchNodes(nodes: [DocumentInterface, number][]) {
   const graphNodes = await Promise.all(nodes.map(async (node) => {
     const nodeLabel = node[0].metadata.label;
 
@@ -59,23 +59,23 @@ export async function fetchNodes(nodes: [DocumentInterface, number][] ) {
 
   const cleanedUpNodes = graphNodes.map((node) => cleanUpNode(node));
 
-  return [... new Set(cleanedUpNodes)];
+  return aggregateNodes(cleanedUpNodes);
 };
 
 function cleanUpExperience(node: NodePropertiesProps) {
   if (node.type == "Personal") {
-    return `Personal project: ${node.title} - ${node.subtitle}`
+    return `${node.title} - ${node.subtitle}`
   }
   
-  return `${node.type}: ${node.subtitle} at ${node.title} from ${node.timeline}`
+  return `${node.subtitle} at ${node.title} from ${node.timeline}`
 };
 
 function cleanUpDescriptions(node: NodePropertiesProps) {
-  return `Description: ${node.description}`
+  return `${node.description}`
 };
 
 function cleanUpSkills(node: NodePropertiesProps) {
-  return `Skill: ${node.skill} (${node.type})`
+  return `${node.skill} (${node.type})`
 };
 
 export function cleanUpNode(node: { records: NodeRecordProps[]; }) {
@@ -84,28 +84,46 @@ export function cleanUpNode(node: { records: NodeRecordProps[]; }) {
   };
   
   const results = node.records.map((record) => {
-    return record["_fields"].map((field: { labels: string[]; properties: NodePropertiesProps; }) => {
+    const fields = record["_fields"].map((field: { labels: string[]; properties: NodePropertiesProps; }) => {
       const nodeLabel =  field.labels[0]
       const nodeProperties = field.properties
 
       let result = null;
       switch (nodeLabel) {
         case "Experience": 
-          result = cleanUpExperience(nodeProperties);
+          result = { Experience: cleanUpExperience(nodeProperties) };
           break;
         case "Descriptions":
-          result = cleanUpDescriptions(nodeProperties);
+          result = { Descriptions: cleanUpDescriptions(nodeProperties) };
           break;
         case "Skills":
-          result = cleanUpSkills(nodeProperties);
+          result = { Skills: cleanUpSkills(nodeProperties) };
           break;
       }
 
       return result;
-    });
+    })
+    
+    return { ...fields[0], ...fields[1], ...fields[2] };
   })
-  
+
   return results;
+};
+
+function aggregateNodes(nodes) {
+  return nodes.reduce((acc, curr) => [ ...acc, ...curr]).
+    reduce((acc, curr) => {
+        if (curr["Experience"] in acc) {
+            acc[curr["Experience"]]["Descriptions"] = [... new Set(acc[curr["Experience"]]["Descriptions"]).add(curr["Descriptions"])]
+            acc[curr["Experience"]]["Skills"] = [... new Set(acc[curr["Experience"]]["Skills"]).add(curr["Skills"])]
+        } else {
+            acc[curr["Experience"]] = {
+                "Descriptions": [curr["Descriptions"]],
+                "Skills": [curr["Skills"]]
+            }
+        }
+        return acc;
+    }, {})
 };
 
 
