@@ -110,9 +110,11 @@ export function cleanUpNode(node: { records: NodeRecordProps[]; }) {
   return results;
 };
 
-function aggregateNodes(nodes) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function aggregateNodes(nodes: any[]) {
   return nodes.reduce((acc, curr) => [ ...acc, ...curr]).
-    reduce((acc, curr) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    reduce((acc: { [x: string]: { Descriptions: any[]; Skills: any[]; }; }, curr: { [x: string]: any; }) => {
         if (curr["Experience"] in acc) {
             acc[curr["Experience"]]["Descriptions"] = [... new Set(acc[curr["Experience"]]["Descriptions"]).add(curr["Descriptions"])]
             acc[curr["Experience"]]["Skills"] = [... new Set(acc[curr["Experience"]]["Skills"]).add(curr["Skills"])]
