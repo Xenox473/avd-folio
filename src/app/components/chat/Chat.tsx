@@ -13,7 +13,7 @@ const Chat = () => {
   const [ question, setQuestion ] = useState('');
   const [ messageHistory, setMessageHistory ] = useState<MessageProps[]>([{
     sender: "bot",
-    message: "Hi! I'm a RAG chatbot built by Abhishek using Langchain, Neo4j, Pinecone, and React. I can answer questions about Abhishek's professional experiences. You can ask me to summarize my experiences, technical skills, or personal projects."
+    message: "Hi! I'm a GraphRAG chatbot built by Abhi using React, Langchain, Neo4j, and Pinecone. You can ask me questions about Abhi's professional experiences, technical skills, or personal projects."
   }]);
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
