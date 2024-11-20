@@ -18,17 +18,19 @@ Additional Technologies for implementing the Chatbot found here: https://avd-fol
     5. Fetch any related information using the Graph stored in Neo4j.
     6. Construct a prompt for the LLM.
     7. Return the generated response back to the client.
+
+![Chatbot Example](<CleanShot 2024-11-20 at 17.44.40.gif>)
+
 - PineCone
   - Used as the vector database for storing embeddings of relevant information along with information about each documents corresponding node in the graph database.
 - Neo4j
   - Used as the graph database to help establish relationships between three different nodes: `Experience`, `Descriptions`, and `Skills`. This allowed the retrieved content to provide a much broader contextual awareness for the LLM to respond with.
+
+![Graph](<CleanShot 2024-11-20 at 17.18.54.png>)
+
+
 - Langchain
   - This package was used both with Python and Typescript to intergace with Pinecone and the OpenAI models.
 - OpenAI API
   - The OpenAI API was used to generate embeddings as well as providing a model that could respond to users' prompts.
-
-![Chatbot Example](<CleanShot 2024-11-20 at 17.44.40.gif>)
-
-![Graph](<CleanShot 2024-11-20 at 17.18.54.png>)
-
 
