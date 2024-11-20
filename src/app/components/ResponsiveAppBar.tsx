@@ -27,6 +27,10 @@ const pages = [
   {
     label: 'Projects',
     href: '/projects'
+  },
+  {
+    label: 'Chatbot',
+    href: '/abot_me'
   }
 ];
 

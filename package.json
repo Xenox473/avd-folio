@@ -9,13 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chatscope/chat-ui-kit-react": "^2.0.3",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@fontsource/roboto": "^5.1.0",
+    "@langchain/core": "^0.3.11",
+    "@langchain/openai": "^0.3.7",
+    "@langchain/pinecone": "^0.1.1",
     "@mui/icons-material": "^6.1.1",
     "@mui/material": "^6.1.1",
+    "@pinecone-database/pinecone": "^3.0.3",
+    "ai": "^3.4.18",
+    "en-pos": "^1.0.16",
     "@vercel/speed-insights": "^1.1.0",
     "framer-motion": "^11.9.0",
+    "neo4j-driver": "^5.26.0",
     "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18"

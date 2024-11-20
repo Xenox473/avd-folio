@@ -1,0 +1,25 @@
+id ,description
+1,"Helped launch a web-app that allowed over 80,000 active users to see estimated wait times at voting centers across counties in Indiana."
+2,"Developed and deployed Survival Analysis models for predictive analytics using Python, AWS Lambda, Serverless and Docker."
+3,Implemented end-to-end tests using Python’s unittest and moto to mock AWS services to ensure successful CI/CD changes.
+4,"Led the implementation of a wait time history visualization using React and MUI components that became a key feature of the
+product."
+5,Developed an NLP-based machine learning model using clustering algorithms for automated election candidate mapping.
+6,Integrated GPT-3.5 for generating data-driven content around county level races using internal election statistics.
+7,Increased test coverage from 0% to 70% through systematic implementation of unit and integration tests using Ruby’s minitest.
+8,Optimized PostgreSQL database architecture and query performance through table redesigns and codebase refactoring.
+9,Leveraged DataDog to monitor application reliability and investigate performance issues.
+10,"Migrated databases from PostgreSQL to Snowflake, reducing infrastructure costs and processing time by 50%"
+11,"Architected custom ETL pipelines (using Python, Ruby, SQL) to ingest healthcare data sources."
+12,Collaborated with the Data Science team to improve forecasting models for healthcare metrics.
+13,Mentored other engineers through code reviews and pairing sessions.
+14,Awarded Snowflake Data Engineering Certification.
+15,Spearheaded implementation of HIPAA-compliant single-tenancy solution for an enterprise client within a quarter.
+16,"Implemented a DAG processing pipeline for data aggregation which improved data ingestion efficiency from a weekly to daily
+cadence."
+17,Engineered a data synchronization algorithm using DAG and batch processing which reduced warehouse-to-application database sync time by 80%
+18,Developed features for the internal data management web application using Ruby on Rails and React.
+19,Developed a pipeline for processing and summarizing album reviews using Retrieval Augmented Generation (RAG) and graph-based algorithms.
+20,A web app created to simulate assesment taking.
+21,"Trained computer vision models (Faster R-CNN, YOLOv5) using PyTorch to detect comic book panels and speech bubbles in order to further academic research efforts in digitizing comic books."
+22,An analysis of NBA matchups during the 2021-2022 regular season using network science techniques.
